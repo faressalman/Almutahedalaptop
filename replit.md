@@ -1,6 +1,6 @@
-# [Project name]
+# almutaheda laptop
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+متجر عربي لعرض اللابتوبات المستعملة والمجددة وحجزها من دون دفع إلكتروني.
 
 ## Run & Operate
 
@@ -22,19 +22,29 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/almutaheda-laptop/src/App.tsx` — صفحات المتجر وتدفق التصفح والسلة والحجز التجريبي.
+- `artifacts/almutaheda-laptop/src/data/products.ts` — بيانات الأجهزة التجريبية وحقولها.
+- `artifacts/almutaheda-laptop/src/index.css` — تنسيق الواجهة وألوانها.
+- `artifacts/api-server` و`lib/db` — خدمات مشتركة متاحة للمرحلة التي ستضيف قاعدة البيانات.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- المرحلة الأولى نموذج واجهة يعمل ببيانات تجريبية، ولا تتصل بقاعدة بيانات أو ترسل حجوزات.
+- تحفظ السلة وتعديلات عينات المنتجات محلياً للتجربة؛ لا تحفظ بيانات التواصل أو العنوان.
+- العملة والأسعار الفعلية لم تُحدد بعد؛ الأرقام الحالية توضيحية فقط.
+- معاينة لوحة الإدارة عامة وتجريبية وليست محمية بعد؛ لا تعرض بيانات عملاء حقيقية.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+يتيح المتجر البحث عن الأجهزة وتصفية النتائج ومقارنة المواصفات، ثم تجربة إضافة الأجهزة إلى السلة وإكمال نموذج حجز توضيحي من دون دفع. الخطوة التالية هي ربط المنتجات والحجوزات بقاعدة بيانات، وإضافة دخول آمن للمدير وتنبيهات الحجوزات داخل الموقع.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- واجهة عربية باتجاه RTL ومتوافقة مع الجوال والكمبيوتر.
+- الحجز فقط؛ لا حاجة إلى دفع إلكتروني.
+- يجب ألا يتمكن الزوار من مشاهدة طلبات عملاء آخرين أو بياناتهم.
+- اشرح التقدم والخطوات التالية بالعربية البسيطة؛ المستخدم مبتدئ ويريد تنفيذ التعديلات الممكنة من دون تعديل الكود يدوياً.
+- المطلوب أن يصل للمدير تنبيه داخل الموقع عند تسجيل حجز فعلي.
 
 ## Gotchas
 
