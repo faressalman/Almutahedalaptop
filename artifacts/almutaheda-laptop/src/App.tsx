@@ -16,6 +16,7 @@ import { Link, Route, Switch, useLocation, useParams, Router as WouterRouter } f
 import { products as initialProducts, type Product } from './data/products';
 
 const queryClient = new QueryClient();
+const officialLogo = `${import.meta.env.BASE_URL}almutaheda-logo.webp`;
 type CartItem = { id: string; quantity: number };
 type DemoConfirmation = { id: string; items: CartItem[]; total: number };
 type Store = {
@@ -59,8 +60,8 @@ function AppShell({ children }: { children: ReactNode }) {
     <header className="header">
       <div className="container header-inner">
         <Link href="/" className="brand" data-testid="link-home-brand">
-          <span className="brand-mark"><Laptop size={21} /></span>
-          <span>المتحدة <small>اختيارك التقني بثقة</small></span>
+          <img className="brand-logo" src={officialLogo} alt="" width="58" height="58" data-testid="img-brand-logo" />
+          <span>المتحدة لابتوب <small>اختيارك التقني بثقة</small></span>
         </Link>
         <nav className="nav" aria-label="التنقل الرئيسي">
           {links.map(([href, label]) => <Link key={href} href={href} className={location === href ? 'active' : ''} data-testid={`link-nav-${href.replace('/', 'home')}`}>{label}</Link>)}
@@ -82,7 +83,7 @@ function AppShell({ children }: { children: ReactNode }) {
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
-          <div><Link href="/" className="brand" data-testid="footer-brand"><span className="brand-mark"><Laptop size={20} /></span><span style={{ color: 'white' }}>المتحدة<small style={{ color: '#aab9c7' }}>اختيارك التقني بثقة</small></span></Link><p>نموذج متجر عربي تجريبي يساعدك على استكشاف أجهزة مستعملة ومجددة، ومراجعة مواصفاتها قبل اتخاذ قرارك.</p></div>
+          <div><Link href="/" className="brand" data-testid="footer-brand"><img className="brand-logo" src={officialLogo} alt="" width="58" height="58" data-testid="img-footer-logo" /><span style={{ color: 'white' }}>المتحدة لابتوب<small style={{ color: '#aab9c7' }}>اختيارك التقني بثقة</small></span></Link><p>نموذج متجر عربي تجريبي يساعدك على استكشاف أجهزة مستعملة ومجددة، ومراجعة مواصفاتها قبل اتخاذ قرارك.</p></div>
           <div><h3>تصفّح</h3><div className="footer-links"><Link href="/products" data-testid="footer-products">الأجهزة التجريبية</Link><Link href="/help" data-testid="footer-help">الأسئلة والمعلومات</Link><Link href="/cart" data-testid="footer-cart">سلة الأجهزة</Link></div></div>
           <div><h3>قبل المتابعة</h3><p>لا تمثل المنتجات أو السياسات أو الحجوزات في هذا النموذج عروضاً فعلية من متجر.</p><Link href="/admin" data-testid="footer-admin">معاينة الإدارة التجريبية</Link></div>
         </div>
